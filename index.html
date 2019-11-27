@@ -27,6 +27,8 @@
                 color: white;
                 text-align: center;
                 font-size: 70px;
+                background: rgba(0,0,0,0.3);
+                box-shadow: 0 0 100px 30px rgba(0,0,0,0.3);
             }
 
             #cover p {
@@ -43,9 +45,123 @@
         </style>
     </section>
 
-    <section class="slide">
+    <section class="slide" id="cover">
         <h2>What about Biometric and U2F Token Web Authentication?</h2>
         <p>Hmmm...</p>
+        <figure>
+            <img class="cover" width="100%" src="/pictures/biometrics.jpg" alt="">
+            <figcaption class="copyright right white">
+                <a href="https://betanews.com/2016/08/24/unsafe-biometrics/">© Jeremy Bergsman</a>
+            </figcaption>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Authentication</h2>
+        <ul>
+            <li>Password Systems</li>
+            <li>Passwordless Systems</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Password Systems</h2>
+        <ul>
+            <li>Basic authentication (<mark>RFC 7235</mark>)
+                <br /><small>401 / 403 HTTP Status Code (<mark>RFC 2616</mark>)</small>
+            </li>
+            <li>Custom implementation
+                <ul>
+                    <li>with open password</li>
+                    <li>with hashed password</li>
+                </ul>
+            </li>
+            <li>Cookies based</li>
+            <li>Token based (JWT <mark>RFC 7519</mark>, etc.)</li>
+            <li>Others</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>What is wrong with it?</h2>
+        <ul>
+            <li>Users are slackers <small>(me too)</small><br />
+                <small>usually a password does not strong enough</small>
+            </li>
+            <li>The browser hands over the password to the server, so...
+                <ul>
+                    <li>The password can be stoled</li>
+                    <li>The password can be hijacked</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>What is wrong with it?</h2>
+        <p>
+            It does not matter how strong your password<br />
+            if it sent in an open way... <br />
+            <h3>
+                because of third-party attack
+            </h3>
+        </p>
+    </section>
+
+    <section class="slide">
+        <style>
+            .meme1 {
+                position: absolute;
+                left: 45%;
+                top: 50%;
+                font-size: 1.4em;
+                color: #fff;
+                transform: translate(0, -50%);
+                width: 50%;
+                background-color: rgba(0,0,0,0.3);
+                box-shadow: 0 0 50px 50px rgba(0,0,0,0.3);
+                border-radius: 1em;
+            }
+        </style>
+        <p class="meme1">Your password can not be stolen<br /> if you do not have such one</p>
+        <img class="cover" width="100%" src="/pictures/meme.jpg" alt="">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Passwordless</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Email Authentication</h2>
+        <figure>
+            <img src="/pictures/mail.png" alt="">
+            <figcaption class="copyright right white">
+                <a href="https://swoopnow.com/user-authentication/">© swoopnow.com</a>
+            </figcaption>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Email Authentication</h2>
+        <ol>
+            <li>The user tells his <mark>email address</mark></li>
+            <li>APP (site) sends an email which contains a special link with <mark>token</mark></li>
+            <li>The user checks his email</li>
+            <li>The user follows by the link from the email</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>What is wrong with it?</h2>
+        <ul>
+            <li>Email and link with token <u>can be intercepted</u></li>
+            <li><s>User can't encrypt his data, except HTTPS</s></li>
+            <li>SPAM</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Biometrics</h2>
     </section>
 
 
