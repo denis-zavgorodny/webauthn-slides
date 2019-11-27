@@ -18,34 +18,6 @@
     </header>
 
     <section class="slide" id="cover">
-        <figure>
-            <img class="cover" src="pictures/webauthn-color.png" alt="What about Biometric and U2F Token Web Authentication?">
-        </figure>
-        <style>
-            #cover h2 {
-                margin: 30px 0 0;
-                color: white;
-                text-align: center;
-                font-size: 70px;
-                background: rgba(0,0,0,0.3);
-                box-shadow: 0 0 100px 30px rgba(0,0,0,0.3);
-            }
-
-            #cover p {
-                margin: 10px 0 0;
-                text-align: center;
-                color: white;
-                font-style: italic;
-                font-size: 20px;
-            }
-
-            #cover p a {
-                color: white;
-            }
-        </style>
-    </section>
-
-    <section class="slide" id="cover">
         <h2>What about Biometric and U2F Token Web Authentication?</h2>
         <p>Hmmm...</p>
         <figure>
@@ -76,9 +48,13 @@
                     <li>with hashed password</li>
                 </ul>
             </li>
+            <li>OAuth (<mark>RFC 6749</mark>)</li>
+            <li>OpenID</li>
+            <!--
             <li>Cookies based</li>
             <li>Token based (JWT <mark>RFC 7519</mark>, etc.)</li>
             <li>Others</li>
+            -->
         </ul>
     </section>
 
@@ -90,8 +66,8 @@
             </li>
             <li>The browser hands over the password to the server, so...
                 <ul>
-                    <li>The password can be stoled</li>
-                    <li>The password can be hijacked</li>
+                    <li>The password can be stoled despite the salt</li>
+                    <li>The password can be hijacked despite the salt</li>
                 </ul>
             </li>
         </ul>
@@ -155,14 +131,57 @@
         <h2>What is wrong with it?</h2>
         <ul>
             <li>Email and link with token <u>can be intercepted</u></li>
-            <li><s>User can't encrypt his data, except HTTPS</s></li>
+            <li><s>User can't encrypt his data, despite HTTPS</s></li>
             <li>SPAM</li>
         </ul>
     </section>
 
-    <section class="slide">
-        <h2 class="shout">Biometrics</h2>
+    <section class="slide" id="cover">
+        <figure>
+            <img class="cover" src="pictures/webauthn-color.png"
+                alt="What about Biometric and U2F Token Web Authentication?">
+        </figure>
     </section>
+
+    <section class="slide">
+        <h2>What is it?</h2>
+        <figure>
+            <blockquote> WebAuthn is a web standard published by the World Wide Web Consortium.
+                WebAuthn is a core component of the FIDO2 Project under the guidance of the FIDO Alliance.
+                The goal of the project is to standardize an interface for authenticating users to web-based
+                applications and services using public-key cryptography.
+            </blockquote><br />
+            <figcaption>(c) wikipedia</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Under The Hood</h2>
+        <ul>
+            <li>Asymmetric cryptography</li>
+            <li>RSA Public/Private Keys</li>
+            <li>Signature</li>
+            <li>Relying party</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Overcomplicated</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Let's figure out</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Asymmetric cryptography</h2>
+        <ul>
+            <li>Public key</li>
+            <li>Private key</li>
+        </ul>
+    </section>
+
+
 
 
     <div class="progress"></div>
