@@ -175,10 +175,35 @@
 
     <section class="slide">
         <h2>Asymmetric cryptography</h2>
+        <center><img src="pictures/keys.png" alt=""></center>
+    </section>
+
+    <section class="slide">
+        <h2>Basic</h2>
         <ul>
-            <li>Public key</li>
-            <li>Private key</li>
+            <li>One way function <code>y = f(x)</code></li>
+            <li>You can calculate <code>y</code> if you know <code>x</code></li>
+            <li>You can not calculate <code>x</code> if you know <code>y</code> in a reasonable amount of time
+                <small>key life time</small>
+            </li>
+            <li>You have a trapdoor function (<mark>Private key</mark>)</li>
+            <li>You have parameters<code>f()</code> (<mark>Public key</mark>)</li>
         </ul>
+    </section>
+
+    <section class="slide">
+        <h2>RSA (Rivest, Shamir, Adleman)</h2>
+        <ul>
+            <li>key generation</li>
+            <li>key destribution</li>
+            <li>encription</li>
+            <li>decription</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>1</h2>
+        <img src="pictures/scheme.png" alt="">
     </section>
 
 
@@ -187,7 +212,5 @@
     <div class="progress"></div>
 
     <script src="node_modules/shower-core/shower.min.js"></script>
-    <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
-
 </body>
 </html>
