@@ -18,6 +18,9 @@
         .small-code {
             font-size: 14px;
         }
+        .middle-code {
+            font-size: 18px;
+        }
     </style>
 </head>
 <body class="shower list">
@@ -277,8 +280,30 @@
             <code>});</code>
         </pre>
     </section>
+    
+    <section class="slide">
+        <h2>Create credentials</h2>
+        <pre class="middle-code">
+            <code>PublicKeyCredential {</code>
+            <code>  <mark>id</mark>: 'ADSUllKQmbqdGtpu4sjseh4cg2TxSvrbcHDTBsv4NSSX9...',</code>
+            <code>  rawId: ArrayBuffer(59),</code>
+            <code>  response: AuthenticatorAttestationResponse {</code>
+            <code>    <mark>clientDataJSON</mark>: ArrayBuffer(121),</code>
+            <code>    <mark>attestationObject</mark>: ArrayBuffer(306),</code>
+            <code>  },</code>
+            <code>  type: 'public-key'</code>
+            <code>}</code>
+        </pre>
+    </section>
 
-
+    <section class="slide">
+        <h2>Create credentials</h2>
+        <ul>
+            <li><code>id</code> – generated credential ID</li>
+            <li><code>clientDataJSON</code> – data passed to authenticator to associate credential with server and browser</li>
+            <li><code>attestationObject</code> – Object with <mark>Public Key</mark> and other metadata</li>
+        </ul>
+    </section>
 
 
     <div class="progress"></div>
