@@ -9,6 +9,12 @@
         .shower {
             --slide-ratio: calc(16 / 9);
         }
+        .slide h2 {
+            margin-bottom: 25px;
+        }
+        .shower.list .slide {
+            padding-top: 60px;
+        }
     </style>
 </head>
 <body class="shower list">
@@ -181,13 +187,14 @@
     <section class="slide">
         <h2>Basic</h2>
         <ul>
-            <li>One way function <code>y = f(x)</code></li>
-            <li>You can calculate <code>y</code> if you know <code>x</code></li>
+            <li><code>x</code> – raw data, <code>y</code> – enctypted data</li>
+            <li>One way function (<mark>RSA Function</mark>) <code>y = f(x)</code></li>
+            <li>You can calculate <code>y</code> if you know <code>x</code> and function's parameters</li>
             <li>You can not calculate <code>x</code> if you know <code>y</code> in a reasonable amount of time
-                <small>key life time</small>
+                <br /><small>key life time</small>
             </li>
+            <li>You have function's parameters<code>f()</code> (<mark>Public key</mark>)</li>
             <li>You have a trapdoor function (<mark>Private key</mark>)</li>
-            <li>You have parameters<code>f()</code> (<mark>Public key</mark>)</li>
         </ul>
     </section>
 
@@ -202,8 +209,30 @@
     </section>
 
     <section class="slide">
-        <h2>1</h2>
-        <img src="pictures/scheme.png" alt="">
+        <h2>How WebAuthn works</h2>
+        <figure>
+            <img src="/pictures/webauthn-how-it-works.svg" alt="">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>How WebAuthn works</h2>
+        <ul>
+            <li>Registering a WebAuthn Credential (<mark>User Registration</mark>)
+                <ol>
+                    <li>Hands over user identificator to Relying party (web site, server) </li>
+                    <li>Generate new key-pair</li>
+                    <li>Deliver public key to the server</li>
+                </ol>
+            </li>
+            <li>Authenticating with a WebAuthn Credential (<mark>User Authenticating</mark>)
+                <ol>
+                    <li>Hands over user identificator to Relying party (web site, server) </li>
+                    <li>Find existing key-pair</li>
+                    <li>Create signature and deliver it to the server</li>
+                </ol>
+            </li>
+        </ul>
     </section>
 
 
