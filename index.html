@@ -21,6 +21,20 @@
         .middle-code {
             font-size: 18px;
         }
+        #cover h2 {
+            text-align: center;
+            color: #fff;
+            padding-top: 40px;
+            background-color: rgba(0,0,0,0.3);
+            box-shadow: 0 0 50px 50px rgba(0,0,0,0.3);
+        }
+        #cover p {
+            text-align: center;
+            color: #fff;
+            background-color: rgba(0,0,0,0.3);
+            box-shadow: 0 0 50px 50px rgba(0,0,0,0.3);
+        }
+
     </style>
 </head>
 <body class="shower list">
@@ -226,14 +240,14 @@
         <ul>
             <li>Registering a WebAuthn Credential (<mark>User Registration</mark>)
                 <ol>
-                    <li>Hands over user identificator to Relying party (web site, server) </li>
+                    <li>Hand over user identification to Relying party (web site, server) </li>
                     <li>Generate new key-pair</li>
                     <li>Deliver public key to the server</li>
                 </ol>
             </li>
             <li>Authenticating with a WebAuthn Credential (<mark>User Authenticating</mark>)
                 <ol>
-                    <li>Hands over user identificator to Relying party (web site, server) </li>
+                    <li>Hand over user identification to Relying party (web site, server) </li>
                     <li>Find existing key-pair</li>
                     <li>Create signature and deliver it to the server</li>
                 </ol>
@@ -254,7 +268,7 @@
     </section>
 
     <section class="slide">
-        <h2>Create credentials</h2>
+        <h2>Create Credentials</h2>
         <pre class="small-code">
             <code>const publicKeyCredentialCreationOptions = {</code>
             <code>  challenge: randomStringFromServer, <span class="comment">// Uint8Array(...)</span></code>
@@ -271,18 +285,18 @@
             <code>};</code>
         </pre>
     </section>
-    
+
     <section class="slide">
-        <h2>Create credentials</h2>
+        <h2>Create Credentials</h2>
         <pre>
             <code>const credential = await navigator.credentials.create({</code>
             <code>  publicKey: publicKeyCredentialCreationOptions</code>
             <code>});</code>
         </pre>
     </section>
-    
+
     <section class="slide">
-        <h2>Create credentials</h2>
+        <h2>Create Credentials</h2>
         <pre class="middle-code">
             <code>PublicKeyCredential {</code>
             <code>  <mark>id</mark>: 'ADSUllKQmbqdGtpu4sjseh4cg2TxSvrbcHDTBsv4NSSX9...',</code>
@@ -297,11 +311,81 @@
     </section>
 
     <section class="slide">
-        <h2>Create credentials</h2>
+        <h2>Create Credentials</h2>
         <ul>
             <li><code>id</code> – generated credential ID</li>
             <li><code>clientDataJSON</code> – data passed to authenticator to associate credential with server and browser</li>
             <li><code>attestationObject</code> – Object with <mark>Public Key</mark> and other metadata</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>User Authenticating</h2>
+        <figure>
+            <center>
+                <img width="38%" src="pictures/use-credentials.png" alt="">
+            </center>
+            <figcaption class="copyright right">
+                <a class="dark" href="https://webauthn.guide/">© webauthn.guide</a>
+            </figcaption>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Use Credentials</h2>
+        <pre class="small-code">
+            <code>const publicKeyCredentialRequestOptions = {</code>
+            <code>  challenge: randomStringFromServer, <span class="comment">// Uint8Array(...)</span></code>
+            <code>  allowCredentials: [{</code>
+            <code>    id: credentialId, <span class="comment">// Uint8Array(...)</span></code>
+            <code>    type: 'public-key',</code>
+            <code>    transports: ['usb', 'ble', 'nfc', 'internal', 'lightning'],</code>
+            <code>  }],</code>
+            <code>  timeout: 60000,</code>
+            <code>}</code>
+            <code></code>
+            <code>const assertion = await navigator.credentials.get({</code>
+            <code>  publicKey: publicKeyCredentialRequestOptions</code>
+            <code>});</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Transports</h2>
+        <ul>
+            <li><b>usb</b> – removable USB devices</li>
+            <li><b>lightning</b> – removable Lightning devices</li>
+            <li><b>nfc</b> – Near Field Communication (NFC) devices</li>
+            <li><b>ble</b> – Bluetooth Low Energy devices</li>
+            <li><b>internal</b> – client device-specific transport (i.e. fingerprint)</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Use Credentials</h2>
+        <pre class="middle-code">
+            <code>PublicKeyCredential {</code>
+            <code>  id: 'ADSUllKQmbqdGtpu4sjseh4cg2TxSvrbcHDTBsv4NSSX9...',</code>
+            <code>  rawId: ArrayBuffer(59),</code>
+            <code>  response: AuthenticatorAssertionResponse {</code>
+            <code>    <mark>authenticatorData</mark>: ArrayBuffer(191),</code>
+            <code>    <mark>clientDataJSON</mark>: ArrayBuffer(118),</code>
+            <code>    <mark>signature</mark>: ArrayBuffer(70),</code>
+            <code>    userHandle: ArrayBuffer(10),</code>
+            <code>  },</code>
+            <code>  type: 'public-key'</code>
+            <code>}</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Server Side Authenticating</h2>
+        <ul>
+            <li>Extract signature</li>
+            <li>Extract authenticator data</li>
+            <li>Find Public key (i.e. from DB)</li>
+            <li>Verify signature by Public key</li>
+            <li>Mark session as valid (or not)</li>
         </ul>
     </section>
 
