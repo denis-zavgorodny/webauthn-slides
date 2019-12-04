@@ -342,7 +342,7 @@
     <section class="slide">
         <h2>Create Credentials</h2>
         <pre>
-            <code>const credential = await navigator.credentials.create({</code>
+            <code>const credential = await <mark>navigator.credentials.create</mark>({</code>
             <code>  publicKey: publicKeyCredentialCreationOptions</code>
             <code>});</code>
         </pre>
@@ -477,7 +477,7 @@
             <code>  timeout: 60000,</code>
             <code>}</code>
             <code></code>
-            <code>const assertion = await navigator.credentials.get({</code>
+            <code>const assertion = await <mark>navigator.credentials.get</mark>({</code>
             <code>  publicKey: publicKeyCredentialRequestOptions</code>
             <code>});</code>
         </pre>
