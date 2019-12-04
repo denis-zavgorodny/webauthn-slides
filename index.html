@@ -18,6 +18,9 @@
         .small-code {
             font-size: 14px;
         }
+        .mono {
+            font-family: 'PT Mono', monospace;
+        }
         .middle-code {
             font-size: 18px;
         }
@@ -33,6 +36,14 @@
             color: #fff;
             background-color: rgba(0,0,0,0.3);
             box-shadow: 0 0 50px 50px rgba(0,0,0,0.3);
+        }
+        .dora-slide h2 {
+            text-align: center;
+            color: #fff;
+            padding-top: 370px;
+            background: rgba(0,0,0,0.5);
+            box-shadow: 0 0 50px 50px rgba(0,0,0,0.5);
+            display: block;
         }
 
     </style>
@@ -359,6 +370,86 @@
             <li><code>clientDataJSON</code> – data passed to authenticator to associate credential with server and browser</li>
             <li><code>attestationObject</code> – Object with <mark>Public Key</mark> and other metadata</li>
         </ul>
+    </section>
+
+    <section class="slide">
+        <h2>attestationObject</h2>
+        <pre>
+            <code>Map {</code>
+            <code>  1 => 2,</code>
+            <code>  3 => -7,</code>
+            <code>  -1 => 1,</code>
+            <code>  -2 => &lt;Buffer 5b fa...&gt;,</code>
+            <code>  -3 => &lt;Buffer 16 0c 39...&gt;</code>
+            <code>}</code>
+        </pre>
+    </section>
+
+    <section class="slide dora-slide">
+        <h2>Help Dora Find Public Key!</h2>
+        <figure>
+            <img class="cover" width="100%" src="pictures/can_you_find.jpg" alt="">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>CBOR Object Signing and Encryption <a href="https://tools.ietf.org/html/rfc8152">RFC</a></h2>
+        <pre class="small-code mono">
++------+-------+-------+---------+----------------------------------+<br />
+|&nbsp;name&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;label&nbsp;|&nbsp;type&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
++------+-------+-------+---------+----------------------------------+<br />
+|&nbsp;kty&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;int/tstr|&nbsp;COSE&nbsp;Key&nbsp;Common&nbsp;Parameters&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+|&nbsp;alg&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;int/tstr|&nbsp;COSE Algorithms&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+|&nbsp;crv&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;-1&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;int&nbsp;/&nbsp;&nbsp;&nbsp;|&nbsp;EC&nbsp;Curve&nbsp;identifier&nbsp;-&nbsp;Taken&nbsp;from&nbsp;|<br />
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;tstr&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;the&nbsp;COSE&nbsp;Curves&nbsp;registry&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+|&nbsp;x&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;-2&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;bstr&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;X&nbsp;Coordinate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+|&nbsp;y&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;-3&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;bstr&nbsp;/&nbsp;&nbsp;|&nbsp;Y&nbsp;Coordinate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;bool&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+|&nbsp;d&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;-4&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;bstr&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Private&nbsp;key&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
++------+-------+-------+---------+----------------------------------+<br />
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>CBOR Object Signing and Encryption</h2>
+        <pre>
+            <code>const tag = Buffer.from([0x04]);<span class="comment">// 0x04 = uncompressed</span></code>
+            <code>const x = coseStruct.get(-2);</code>
+            <code>const y = coseStruct.get(-3);</code>
+            <code>const <mark>PKCS</mark> = Buffer.concat([tag, x, y])</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Public Key Cryptography Standards (<a href="https://tools.ietf.org/html/rfc2313">PKCS#1</a>)</h2>
+        <pre>
+            <code>SEQUENCE {</code>
+            <code>  SEQUENCE {</code>
+            <code>    OBJECTIDENTIFIER 1.2.840.10045.2.1 (ecPublicKey)</code>
+            <code>    OBJECTIDENTIFIER 1.2.840.10045.3.1.7 (P-256)</code>
+            <code>  }</code>
+            <code>  BITSTRING &lt;raw public key (<mark>PKCS</mark>)&gt;</code>
+            <code>}</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Privacy Enhancement for Internet Electronic Mail</h2>
+        <div align="right"><a href="https://tools.ietf.org/html/rfc1421"><mark>PEM</mark> RFC 1421</a></div>
+        <pre class="middle-code">
+            <code>-----BEGIN PUBLIC KEY-----</code>
+            <code>MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAES8TDnoo3SH7tkQipIFDVB2Nfx5mp</code>
+            <code>j0L4OaOdqLbfEeYEsU5DE1hW0ROHCId5MTlfKbJY4wUYWseGSjwShgYsMQ==</code>
+            <code>-----END PUBLIC KEY-----</code>
+        </pre>
+    </section>
+
+    <section class="slide dora-slide">
+        <figure>
+            <img class="cover" width="100%" src="pictures/dora-happyness.jpg" alt="">
+        </figure>
     </section>
 
     <section class="slide">
