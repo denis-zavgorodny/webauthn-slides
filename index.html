@@ -76,17 +76,18 @@
     <section class="slide">
         <h2>Password Systems</h2>
         <ul>
-            <li>Basic authentication (<mark>RFC 7235</mark>)
+            <li>Basic authentication (<mark>RFC 2617, RFC 7235</mark>)
                 <br /><small>401 / 403 HTTP Status Code (<mark>RFC 2616</mark>)</small>
             </li>
-            <li>Custom implementation
+            <li>HTTP Digest Authentication (<mark>RFC 2617</mark>)</li>
+            <li>Form-based (custom implementation)
                 <ul>
                     <li>with open password</li>
                     <li>with hashed password</li>
                 </ul>
             </li>
-            <li>OAuth (<mark>RFC 6749</mark>)</li>
-            <li>OpenID</li>
+            <!-- <li>OAuth (<mark>RFC 6749</mark>)</li>
+            <li>OpenID</li> -->
             <!--
             <li>Cookies based</li>
             <li>Token based (JWT <mark>RFC 7519</mark>, etc.)</li>
@@ -168,14 +169,15 @@
         <h2>What is wrong with it?</h2>
         <ul>
             <li>Email and link with token <u>can be intercepted</u></li>
+            <li>Emails might get into spam</li>
             <li><s>User can't encrypt his data, despite HTTPS</s></li>
-            <li>SPAM</li>
         </ul>
     </section>
 
     <section class="slide">
         <h2>Something else?</h2>
         <ul>
+            <li>OpenID</li>
             <li>Hardware Security Key</li>
             <li>Trusted Platform Module Devices</li>
             <li>Local Device Authentication</li>
@@ -544,6 +546,9 @@
             <li><a href="https://www.w3.org/TR/webauthn-1/">https://www.w3.org/TR/webauthn-1/</a></li>
             <li><a href="https://w3c.github.io/webauthn/">https://w3c.github.io/webauthn/</a></li>
             <li><a href="https://webauthn.guide/">https://webauthn.guide/</a></li>
+            <li><a
+                    href="https://people.csail.mit.edu/rivest/Rsapaper.pdf">https://people.csail.mit.edu/rivest/Rsapaper.pdf</a>
+            </li>
             <li><a href="https://www.cs.princeton.edu/courses/archive/spring10/cos433/lec14new.pdf">https://www.cs.princeton.edu/courses/archive/spring10/cos433/lec14new.pdf</a></li>
         </ul>
     </section>
