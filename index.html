@@ -218,6 +218,16 @@
     </section>
 
     <section class="slide" id="cover">
+        <center><figure>
+        <img class="conver" height="450" src="pictures/toshiba-g500.jpg" alt="Toshiba Portege G500">
+        </figure></center>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><small style="font-size: 40px">Toshiba Portege G500</small><br /> <b>2007</b></h2>
+    </section>
+
+    <section class="slide" id="cover">
         <figure>
             <img class="cover" src="pictures/webauthn-color.png"
                 alt="What about Biometric and U2F Token Web Authentication?">
@@ -262,10 +272,10 @@
     <section class="slide">
         <h2>Basic</h2>
         <ul>
-            <li><code>x</code> – raw data, <code>y</code> – enctypted data</li>
-            <li>One way function (<mark>RSA Function</mark>) <code>y = f(x)</code></li>
-            <li>You can calculate <code>y</code> if you know <code>x</code> and function's parameters</li>
-            <li>You can not calculate <code>x</code> if you know <code>y</code> in a reasonable amount of time
+            <li><code>m</code> – raw data, <code>c</code> – enctypted data</li>
+            <li>One way function <code>c = f(m)</code></li>
+            <li>You can calculate <code>c</code> if you know <code>m</code> and function's parameters</li>
+            <li>You can not calculate <code>m</code> if you know <code>c</code> in a reasonable amount of time
                 <br /><small>key life time</small>
             </li>
             <li>You have function's parameters<code>f()</code> (<mark>Public key</mark>)</li>
@@ -274,12 +284,28 @@
     </section>
 
     <section class="slide">
-        <h2>RSA (Rivest, Shamir, Adleman)</h2>
+        <h2><a href="https://people.csail.mit.edu/rivest/Rsapaper.pdf">RSA</a> (Rivest, Shamir, Adleman)</h2>
+        <br />
+        <blockquote>
+            A Method for Obtaining Digital
+            Signatures and Public-Key Cryptosystems
+            <figcaption><br />
+                <p>MIT, 1977</p>
+            </figcaption>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <h2>RSA</h2>
+        <center><figure>
+            <img width="60%" src="pictures/rsa-formula.svg" alt="RSA Formula to encrypt">
+            <img width="60%" src="pictures/rsa-formula2.svg" alt="RSA Formula to decrypt">
+        </figure></center>
         <ul>
-            <li>key generation</li>
-            <li>key destribution</li>
-            <li>encription</li>
-            <li>decription</li>
+            <li>c – enctypted message</li>
+            <li>m – dectypted message</li>
+            <li>e, n – public key</li>
+            <li>d, n – private key</li>
         </ul>
     </section>
 
@@ -525,6 +551,10 @@
     </section>
 
     <section class="slide">
+        <h2>Use cases</h2>
+    </section>
+
+    <section class="slide">
         <h2>Can I Use?</h2>
         <figure>
             <img width="100%" src="pictures/can-i-use.png" alt="">
@@ -550,6 +580,9 @@
                     href="https://people.csail.mit.edu/rivest/Rsapaper.pdf">https://people.csail.mit.edu/rivest/Rsapaper.pdf</a>
             </li>
             <li><a href="https://www.cs.princeton.edu/courses/archive/spring10/cos433/lec14new.pdf">https://www.cs.princeton.edu/courses/archive/spring10/cos433/lec14new.pdf</a></li>
+            <li><a
+                    href="https://medium.com/@bn121rajesh/rsa-sign-and-verify-using-openssl-behind-the-scene-bf3cac0aade2">https://medium.com/@bn121rajesh/rsa-sign-and-verify-using-openssl-behind-the-scene-bf3cac0aade2</a>
+            </li>
         </ul>
     </section>
 
