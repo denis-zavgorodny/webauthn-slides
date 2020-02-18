@@ -314,10 +314,17 @@
         <figure>
             <img src="pictures/webauthn-how-it-works.svg" alt="">
         </figure>
+        <figcaption class="copyright right">
+            <a href="https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/WebAuthn_Readiness_Checklist.html">©
+                yubico.com</a>
+        </figcaption>
+
+
+
     </section>
 
     <section class="slide">
-        <h2>How WebAuthn works</h2>
+        <h2>How WebAuthn works, again</h2>
         <ul>
             <li>Registering a WebAuthn Credential (<mark>User Registration</mark>)
                 <ol>
@@ -547,6 +554,29 @@
             <li>Find Public key (i.e. from DB)</li>
             <li>Verify signature by Public key</li>
             <li>Mark session as valid (or not)</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Сommon misconceptions</h2>
+        <ul>
+            <li>My fingerprints are passed to server</li>
+            <li>The key contains my fingerprint</li>
+            <li>The certain fingerprint create the certain key</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">No</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Let's clear it up</h2>
+        <ul>
+            <li>Public key does not contain user fingerprint</li>
+            <li>Private key does not contain user fingerprint as well</li>
+            <li>Internal Authenticator keeps keys on your HDD</li>
+            <li>External Authenticator keeps keys on an external device</li>
         </ul>
     </section>
 
