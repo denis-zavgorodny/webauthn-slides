@@ -12,6 +12,19 @@
         .slide h2 {
             margin-bottom: 25px;
         }
+        .slide::after {
+            background-image: none;
+            background-color: rgba(205, 0, 0, 1);
+            top: auto;
+            left: auto;
+            right: 40px;
+            bottom: 10px;
+            width: 50px;
+            height: 50px;
+            padding: 0;
+            border-radius: 10%;
+            line-height: 53px;
+        }
         .shower.list .slide {
             padding-top: 60px;
         }
@@ -45,7 +58,13 @@
             box-shadow: 0 0 50px 50px rgba(0,0,0,0.5);
             display: block;
         }
-
+        .timeline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body class="shower list">
@@ -54,7 +73,7 @@
         <h1>What about Biometric and U2F Token Web Authentication?</h1>
     </header>
 
-    <section class="slide" id="cover">
+    <section class="slide clear" id="cover">
         <h2>What about Biometric and U2F Token Web Authentication?</h2>
         <p>Hmmm...</p>
         <figure>
@@ -66,14 +85,12 @@
     </section>
 
     <section class="slide">
-        <h2>Authentication</h2>
-        <ul>
-            <li>Password Systems</li>
-            <li>Passwordless Systems</li>
-        </ul>
+        <img class="timeline" src="pictures/timeline/1992.png" alt="">
+        <h2 class="shout">Authentication</h2>
     </section>
 
     <section class="slide">
+        <img class="timeline" src="pictures/timeline/1992.png" alt="">
         <h2>Password Systems</h2>
         <ul>
             <li>Basic authentication (<mark>RFC 2617, RFC 7235</mark>)
@@ -97,10 +114,11 @@
     </section>
 
     <section class="slide">
+        <img class="timeline" src="pictures/timeline/1992.png" alt="">
         <h2>What is wrong with it?</h2>
         <ul>
             <li>Users are slackers <small>(me too)</small><br />
-                <small>usually a password does not strong enough</small>
+                <small>usually a password is not strong enough</small>
             </li>
             <li>The browser hands over the password to the server, so...
                 <ul>
@@ -112,17 +130,6 @@
     </section>
 
     <section class="slide">
-        <h2>What is wrong with it?</h2>
-        <p>
-            It does not matter how strong your password<br />
-            if it sent in an open way... <br />
-            <h3>
-                because of third-party attack
-            </h3>
-        </p>
-    </section>
-
-    <section class="slide">
         <style>
             .meme1 {
                 position: absolute;
@@ -131,22 +138,22 @@
                 font-size: 1.4em;
                 color: #fff;
                 transform: translate(0, -50%);
-                width: 50%;
+                width: 60%;
                 background-color: rgba(0,0,0,0.3);
                 box-shadow: 0 0 50px 50px rgba(0,0,0,0.3);
                 border-radius: 1em;
             }
         </style>
-        <p class="meme1">Your password can not be stolen<br /> if you do not have such one</p>
+        <p class="meme1">Your Password Could Not Be Stolen<br /> If You Do Not Have Such One</p>
         <img class="cover" width="100%" src="pictures/meme.jpg" alt="">
     </section>
 
     <section class="slide">
-        <h2 class="shout">Passwordless</h2>
+        <h2 class="shout">Password-free</h2>
     </section>
 
     <section class="slide">
-        <h2>Email Authentication</h2>
+        <h2>Email Token-Based Authentication</h2>
         <figure>
             <img src="pictures/mail.png" alt="">
             <figcaption class="copyright right">
@@ -156,7 +163,7 @@
     </section>
 
     <section class="slide">
-        <h2>Email Authentication</h2>
+        <h2>Email Token-Based Authentication</h2>
         <ol>
             <li>The user tells his <mark>email address</mark></li>
             <li>APP (site) sends an email which contains a special link with <mark>token</mark></li>
@@ -175,6 +182,7 @@
     </section>
 
     <section class="slide">
+        <img class="timeline" src="pictures/timeline/2007.png" alt="">
         <h2>Something else?</h2>
         <ul>
             <li>OpenID</li>
@@ -185,6 +193,27 @@
     </section>
 
     <section class="slide">
+        <h2 class="shout"><small>September 20</small><br /> <b>2013</b></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">TouchID<br /><small>iPhone 5s</small></h2>
+    </section>
+
+    <section class="slide" id="cover">
+        <center>
+            <figure>
+                <img class="conver" height="450" src="pictures/toshiba-g500.jpg" alt="Toshiba Portege G500">
+            </figure>
+        </center>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><small style="font-size: 40px">Toshiba Portege G500</small><br /> <b>2007</b></h2>
+    </section>
+
+    <section class="slide">
+        <img class="timeline" src="pictures/timeline/2014.png" alt="">
         <h2>Two Factor Authentication</h2>
 
         <figure>
@@ -198,6 +227,7 @@
     </section>
 
     <section class="slide">
+        <img class="timeline" src="pictures/timeline/2014.png" alt="">
         <h2>Two-Factor Authentication Methods</h2>
         <ul>
             <li>Push Notifications</li>
@@ -209,25 +239,8 @@
         </ul>
     </section>
 
-    <section class="slide">
-        <h2 class="shout"><small>September 20</small><br/> <b>2013</b></h2>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout">TouchID<br /><small>iPhone 5s</small></h2>
-    </section>
-
     <section class="slide" id="cover">
-        <center><figure>
-        <img class="conver" height="450" src="pictures/toshiba-g500.jpg" alt="Toshiba Portege G500">
-        </figure></center>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout"><small style="font-size: 40px">Toshiba Portege G500</small><br /> <b>2007</b></h2>
-    </section>
-
-    <section class="slide" id="cover">
+        <img class="timeline" src="pictures/timeline/2019.png" alt="">
         <figure>
             <img class="cover" src="pictures/webauthn-color.png"
                 alt="What about Biometric and U2F Token Web Authentication?">
@@ -312,7 +325,7 @@
     <section class="slide">
         <h2>How WebAuthn works</h2>
         <figure>
-            <img src="pictures/webauthn-how-it-works.svg" alt="">
+            <img width="100%" src="pictures/webauthn-how-it-works.svg" alt="">
         </figure>
         <figcaption class="copyright right">
             <a href="https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/WebAuthn_Readiness_Checklist.html">©
@@ -606,6 +619,7 @@
             <li><a href="https://www.w3.org/TR/webauthn-1/">https://www.w3.org/TR/webauthn-1/</a></li>
             <li><a href="https://w3c.github.io/webauthn/">https://w3c.github.io/webauthn/</a></li>
             <li><a href="https://webauthn.guide/">https://webauthn.guide/</a></li>
+            <li><a href="https://fidoalliance.org/fido2/">https://fidoalliance.org/fido2/</a></li>
             <li><a
                     href="https://people.csail.mit.edu/rivest/Rsapaper.pdf">https://people.csail.mit.edu/rivest/Rsapaper.pdf</a>
             </li>
@@ -623,7 +637,7 @@
                 <td>
                     <p>
                         <strong>Denis Zavgorodny</strong>
-                        <br /> Frontend Engineer, co-founder of <a href="https://chernivtsi.js.org/">@ChernivtsiJS</a>
+                        <br /> Frontend Engineer, <a href="https://chernivtsi.js.org/">@ChernivtsiJS</a> organizer
                     </p>
                     <p>
                         <a href="https://twitter.com/DenisZavgorodny">@DenisZavgorodny</a>
