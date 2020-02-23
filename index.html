@@ -423,6 +423,27 @@
     <section class="slide">
         <h2>attestationObject</h2>
         <pre>
+            <code>{</code>
+            <code>  fmt: 'none',</code>
+            <code>  attStmt: {},</code>
+            <code>  <mark>authData</mark>: &lt;Buffer 49 96 0d  ...&gt;</code>
+            <code>}</code>
+        </pre>
+    </section>
+    <section class="slide">
+        <h2>authData</h2>
+        <center>
+            <figure>
+                <img width="70%" src="pictures/authData.png" alt="">
+            </figure>
+        </center>
+        <figcaption class="copyright right">
+            <a class="dark" href="https://medium.com/@herrjemand/verifying-fido2-responses-4691288c8770">© @herrjemand</a>
+        </figcaption>
+    </section>
+    <section class="slide">
+        <h2>Credential Data</h2>
+        <pre>
             <code>Map {</code>
             <code>  1 => 2,</code>
             <code>  3 => -7,</code>
@@ -463,7 +484,8 @@
     <section class="slide">
         <h2>CBOR Object Signing and Encryption</h2>
         <pre>
-            <code>const tag = Buffer.from([0x04]);<span class="comment">// 0x04 = uncompressed</span></code>
+            <code>const tag = Buffer.from([0x04]);</code>
+            <code><span class="comment">// 0x04 flag</span></code>
             <code>const x = coseStruct.get(-2);</code>
             <code>const y = coseStruct.get(-3);</code>
             <code>const <mark>PKCS</mark> = Buffer.concat([tag, x, y])</code>
