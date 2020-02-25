@@ -369,6 +369,15 @@
 
     <section class="slide">
         <h2>Create Credentials</h2>
+        <pre>
+                <code>const credential = await <mark>navigator.credentials.create</mark>({</code>
+                <code>  publicKey: publicKeyCredentialCreationOptions</code>
+                <code>});</code>
+            </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Create Credentials</h2>
         <pre class="extra-small-code">
             <code>const publicKeyCredentialCreationOptions = {</code>
             <code>  challenge: randomStringFromServer, <span class="comment">// Uint8Array(...)</span></code>
@@ -386,15 +395,6 @@
             <code>  timeout: 60000,</code>
             <code>  attestation: "direct" <span class="comment">// none | indirect | direct</span></code>
             <code>};</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>Create Credentials</h2>
-        <pre>
-            <code>const credential = await <mark>navigator.credentials.create</mark>({</code>
-            <code>  publicKey: publicKeyCredentialCreationOptions</code>
-            <code>});</code>
         </pre>
     </section>
 
@@ -633,7 +633,7 @@
         <table class="pros-and-cons">
             <tr>
                 <td>Securely</td>
-                <td>CORS</td>
+                <td>Origin</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
