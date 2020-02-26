@@ -76,7 +76,7 @@
             padding: 0;
         }
         .links-list {
-            font-size: 14px;
+            font-size: 12px;
         }
         .pros-and-cons td {
             width: 50% !important;
@@ -184,16 +184,6 @@
     </section>
 
     <section class="slide">
-        <h2>Email Token-Based Authentication</h2>
-        <ol>
-            <li>The user tells his <mark>email address</mark></li>
-            <li>APP (site) sends an email which contains a special link with <mark>token</mark></li>
-            <li>The user checks his email</li>
-            <li>The user follows by the link from the email</li>
-        </ol>
-    </section>
-
-    <section class="slide">
         <h2>What is wrong with it?</h2>
         <ul>
             <li>Email and link with token <u>can be intercepted</u></li>
@@ -269,34 +259,21 @@
     </section>
 
     <section class="slide">
-        <h2>What is it?</h2>
-        <figure>
-            <blockquote> WebAuthn is a web standard published by the World Wide Web Consortium.
-                WebAuthn is a core component of the FIDO2 Project under the guidance of the FIDO Alliance.
-                The goal of the project is to standardize an interface for authenticating users to web-based
-                applications and services using public-key cryptography.
-            </blockquote><br />
-            <figcaption>(c) wikipedia</figcaption>
-        </figure>
-    </section>
-
-    <section class="slide">
         <h2>Under The Hood</h2>
         <ul>
             <li>Asymmetric cryptography</li>
             <li>Public/Private Keys</li>
             <li>Signature</li>
-            <li>Relying party</li>
         </ul>
     </section>
 
     <section class="slide">
-        <h2 class="shout">Overcomplicated</h2>
+        <h2 class="shout">
+            Overcomplicated
+            <small>Let's figure out</small>
+        </h2>
     </section>
 
-    <section class="slide">
-        <h2 class="shout">Let's figure out</h2>
-    </section>
 
     <section class="slide">
         <h2>Asymmetric cryptography</h2>
@@ -358,26 +335,6 @@
     </section>
 
     <section class="slide">
-        <h2>How WebAuthn works, again</h2>
-        <ul>
-            <li>Registering a WebAuthn Credential (<mark>User Registration</mark>)
-                <ol>
-                    <li>Hand over user identification to Relying party (web site, server) </li>
-                    <li>Generate new key-pair</li>
-                    <li>Deliver public key to the server</li>
-                </ol>
-            </li>
-            <li>Authenticating with a WebAuthn Credential (<mark>User Authenticating</mark>)
-                <ol>
-                    <li>Hand over user identification to Relying party (web site, server) </li>
-                    <li>Find existing key-pair</li>
-                    <li>Create signature and deliver it to the server</li>
-                </ol>
-            </li>
-        </ul>
-    </section>
-
-    <section class="slide">
         <h2>User Registration</h2>
         <figure>
             <center>
@@ -402,8 +359,8 @@
         <h2>Create Credentials</h2>
         <pre class="extra-small-code">
             <code>const publicKeyCredentialCreationOptions = {</code>
-            <code>  challenge: randomStringFromServer, <span class="comment">// Uint8Array(...)</span></code>
-            <code>  rp: { name: "Some secure site", id: "SomeSecureSite.com" },</code>
+            <code>  <mark>challenge</mark>: randomStringFromServer, <span class="comment">// Uint8Array(...)</span></code>
+            <code>  <mark>rp</mark>: { name: "Some secure site", <mark>id</mark>: "SomeSecureSite.com" },</code>
             <code>  user: {</code>
             <code>    id: UZSL85T9AFC, <span class="comment">// Uint8Array(...)</span></code>
             <code>    name: "Vasyl@SomeSecureSite.com",</code>
@@ -466,7 +423,7 @@
         </figcaption>
     </section>
     <section class="slide">
-        <h2>Credential Data</h2>
+        <h2>Public Key</h2>
         <pre>
             <code>Map {</code>
             <code>  1 => 2,</code>
@@ -598,7 +555,6 @@
             <code>    <mark>authenticatorData</mark>: ArrayBuffer(191),</code>
             <code>    <mark>clientDataJSON</mark>: ArrayBuffer(118),</code>
             <code>    <mark>signature</mark>: ArrayBuffer(70),</code>
-            <code>    userHandle: ArrayBuffer(10),</code>
             <code>  },</code>
             <code>  type: 'public-key'</code>
             <code>}</code>
@@ -620,7 +576,6 @@
         <h2>Can I Use?</h2>
         <figure>
             <img width="100%" src="pictures/can-i-use-webauthn.png" alt="">
-            <img width="100%" src="pictures/can-i-use-u2f.png" alt="">
             <figcaption class="copyright right">
                 <a href="https://caniuse.com/#search=webauthn">caniuse.com</a>
             </figcaption>
@@ -696,11 +651,6 @@
     </section>
 
     <section class="slide">
-        <iframe class="video" width="100%" height="470" src="https://www.youtube.com/embed/81ManZWF0dE" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </section>
-
-    <section class="slide">
         <h2>Links</h2>
         <ul class="links-list">
             <li>
@@ -716,6 +666,10 @@
                     href="https://people.csail.mit.edu/rivest/Rsapaper.pdf">A Method for Obtaining Digital
                     Signatures and Public-Key Cryptosystems</a>
             </li>
+            <li><a href="https://medium.com/@herrjemand/introduction-to-webauthn-api-5fd1fb46c285">Introduction to WebAuthn API</a></li>
+            <li><a href="https://medium.com/@herrjemand/verifying-fido2-responses-4691288c8770">WebAuthn/FIDO2: Verifying responses</a></li>
+            <li><a href="https://medium.com/@herrjemand/verifying-fido-u2f-attestations-in-fido2-f83fab80c355">WebAuthn/FIDO2: Verifying U2F Attestation</a></li>
+            <li><a href="https://www.ubisecure.com/api/fido-webauthn-api/">Working with FIDO and the WebAuthn API</a></li>
             <li><a href="https://www.cs.princeton.edu/courses/archive/spring10/cos433/lec14new.pdf">Public Key Cryptography</a></li>
             <li><a
                     href="https://medium.com/@bn121rajesh/rsa-sign-and-verify-using-openssl-behind-the-scene-bf3cac0aade2">RSA sign and verify using Openssl : Behind the scene</a>
@@ -753,6 +707,11 @@
                 </td>
             </tr>
         </table>
+    </section>
+
+    <section class="slide">
+        <iframe class="video" width="100%" height="470" src="https://www.youtube.com/embed/81ManZWF0dE" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </section>
 
 
