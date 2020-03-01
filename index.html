@@ -257,6 +257,50 @@
         </figure>
     </section>
 
+    <section class="slide" id="cover">
+        <img class="cover" src="pictures/gmail/step1.png" alt="">
+    </section>
+
+    <section class="slide" id="cover">
+        <img class="cover" src="pictures/gmail/step2.png" alt="">
+    </section>
+
+    <section class="slide" id="cover">
+        <img class="cover" src="pictures/gmail/step3.png" alt="">
+    </section>
+
+    <section class="slide" id="cover">
+        <figure>
+            <img class="cover" width="100%" src="pictures/FIDO-Yubico-YubiKeys-2.jpg" alt="">
+            <figcaption class="copyright right">
+                <a href="https://bezopasnik.info/">© bezopasnik.info</a>
+            </figcaption>
+        </figure>
+
+    </section>
+
+    <section class="slide" id="cover">
+        <img class="cover" src="pictures/gmail/step4.png" alt="">
+    </section>
+
+    <section class="slide">
+        <h2>Key Registration</h2>
+        <figure>
+            <img width="100%" src="pictures/gmail/registration.jpg" alt="">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>How WebAuthn works</h2>
+        <figure>
+            <img width="100%" src="pictures/webauthn-how-it-works.svg" alt="">
+        </figure>
+        <figcaption class="copyright right">
+            <a href="https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/WebAuthn_Readiness_Checklist.html">©
+                yubico.com</a>
+        </figcaption>
+    </section>
+
     <section class="slide">
         <h2>Under The Hood</h2>
         <ul>
@@ -275,22 +319,23 @@
 
 
     <section class="slide">
-        <h2>Asymmetric cryptography</h2>
+        <h2>Symmetric cryptography</h2>
+        <center><img src="pictures/keys1.png" alt=""></center>
+    </section>
+
+    <section class="slide">
+        <h2><span style="color: #cc0000;">A</span>symmetric cryptography</h2>
         <center><img src="pictures/keys.png" alt=""></center>
     </section>
 
     <section class="slide">
-        <h2>Basic</h2>
-        <ul>
-            <li><code>m</code> – raw data, <code>c</code> – enctypted data</li>
-            <li>One way function <code>c = f(m)</code></li>
-            <li>You can calculate <code>c</code> if you know <code>m</code> and function's parameters</li>
-            <li>You can not calculate <code>m</code> if you know <code>c</code> in a reasonable amount of time
-                <br /><small>key life time</small>
-            </li>
-            <li>You have function's parameters<code>f()</code> (<mark>Public key</mark>)</li>
-            <li>You have a trapdoor function (<mark>Private key</mark>)</li>
-        </ul>
+        <h2 class="shout">Trapdoor one-way function</h2>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/trapdoor/trapdoor.jpg" alt="">
+        </figure>
     </section>
 
     <section class="slide">
@@ -306,47 +351,19 @@
     </section>
 
     <section class="slide">
-        <h2>RSA</h2>
-        <center><figure>
-            <img width="60%" src="pictures/rsa-formula.svg" alt="RSA Formula to encrypt">
-            <img width="60%" src="pictures/rsa-formula2.svg" alt="RSA Formula to decrypt">
-        </figure></center>
-        <ul>
-            <li>c – enctypted message</li>
-            <li>m – dectypted message</li>
-            <li>e, n – public key</li>
-            <li>d, n – private key</li>
-        </ul>
-    </section>
-
-    <section class="slide">
-        <h2>How WebAuthn works</h2>
-        <figure>
-            <img width="100%" src="pictures/webauthn-how-it-works.svg" alt="">
-        </figure>
-        <figcaption class="copyright right">
-            <a href="https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/WebAuthn_Readiness_Checklist.html">©
-                yubico.com</a>
-        </figcaption>
-
-
-
+        <h2 class="shout">Clifford Cocks<br /><small>1973</small></h2>
     </section>
 
     <section class="slide">
         <h2>User Registration</h2>
         <figure>
-            <center>
-                <img width="55%" src="pictures/registration.png" alt="">
-            </center>
-            <figcaption class="copyright right">
-                <a class="dark" href="https://webauthn.guide/">© webauthn.guide</a>
-            </figcaption>
+            <img width="100%" src="pictures/webauth-registration.jpg" alt="">
         </figure>
     </section>
 
     <section class="slide">
         <h2>Create Credentials</h2>
+        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
         <pre>
                 <code>const credential = await <mark>navigator.credentials.create</mark>({</code>
                 <code>  publicKey: publicKeyCredentialCreationOptions</code>
@@ -356,6 +373,7 @@
 
     <section class="slide">
         <h2>Create Credentials</h2>
+        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
         <pre class="extra-small-code">
             <code>const publicKeyCredentialCreationOptions = {</code>
             <code>  <mark>challenge</mark>: randomStringFromServer, <span class="comment">// Uint8Array(...)</span></code>
@@ -378,6 +396,7 @@
 
     <section class="slide">
         <h2>Create Credentials</h2>
+        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
         <pre class="middle-code">
             <code>PublicKeyCredential {</code>
             <code>  <mark>id</mark>: 'ADSUllKQmbqdGtpu4sjseh4cg2TxSvrbcHDTBsv4NSSX9...',</code>
@@ -402,6 +421,7 @@
 
     <section class="slide">
         <h2>attestationObject</h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <pre>
             <code>{</code>
             <code>  fmt: 'none',</code>
@@ -412,6 +432,7 @@
     </section>
     <section class="slide">
         <h2>authData</h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <center>
             <figure>
                 <img width="70%" src="pictures/authData.png" alt="">
@@ -423,6 +444,7 @@
     </section>
     <section class="slide">
         <h2>Public Key</h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <pre>
             <code>Map {</code>
             <code>  1 => 2,</code>
@@ -443,6 +465,7 @@
 
     <section class="slide">
         <h2>CBOR Object Signing and Encryption <a href="https://tools.ietf.org/html/rfc8152">RFC</a></h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <pre class="small-code mono">
 +------+-------+-------+---------+----------------------------------+<br />
 |&nbsp;name&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;label&nbsp;|&nbsp;type&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
@@ -463,6 +486,7 @@
 
     <section class="slide">
         <h2>CBOR Object Signing and Encryption</h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <pre>
             <code>const tag = Buffer.from([0x04]);</code>
             <code><span class="comment">// 0x04 flag</span></code>
@@ -474,6 +498,7 @@
 
     <section class="slide">
         <h2>Public Key Cryptography Standards (<a href="https://tools.ietf.org/html/rfc2313">PKCS#1</a>)</h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <pre>
             <code>SEQUENCE {</code>
             <code>  SEQUENCE {</code>
@@ -487,6 +512,7 @@
 
     <section class="slide">
         <h2>Privacy Enhancement for Internet Electronic Mail</h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <div align="right"><a href="https://tools.ietf.org/html/rfc1421"><mark>PEM</mark> RFC 1421</a></div>
         <pre class="middle-code">
             <code>-----BEGIN PUBLIC KEY-----</code>
@@ -506,16 +532,14 @@
         <h2>User Authenticating</h2>
         <figure>
             <center>
-                <img width="38%" src="pictures/use-credentials.png" alt="">
+                <img width="95%" src="pictures/authentification.jpg" alt="">
             </center>
-            <figcaption class="copyright right">
-                <a class="dark" href="https://webauthn.guide/">© webauthn.guide</a>
-            </figcaption>
         </figure>
     </section>
 
     <section class="slide">
         <h2>Use Credentials</h2>
+        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
         <pre class="small-code">
             <code>const publicKeyCredentialRequestOptions = {</code>
             <code>  challenge: randomStringFromServer, <span class="comment">// Uint8Array(...)</span></code>
@@ -535,6 +559,7 @@
 
     <section class="slide">
         <h2>Transports</h2>
+        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
         <ul>
             <li><b>usb</b> – removable USB devices</li>
             <li><b>lightning</b> – removable Lightning devices</li>
@@ -546,6 +571,7 @@
 
     <section class="slide">
         <h2>Use Credentials</h2>
+        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
         <pre class="middle-code">
             <code>PublicKeyCredential {</code>
             <code>  id: 'ADSUllKQmbqdGtpu4sjseh4cg2TxSvrbcHDTBsv4NSSX9...',</code>
@@ -561,14 +587,11 @@
     </section>
 
     <section class="slide">
-        <h2>Server Side Authenticating</h2>
-        <ul>
-            <li>Extract signature</li>
-            <li>Extract authenticator data</li>
-            <li>Find Public key (i.e. from DB)</li>
-            <li>Verify signature by Public key</li>
-            <li>Mark session as valid (or not)</li>
-        </ul>
+        <h2>Verify signature</h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
+        <figure>
+            <img width="100%" src="pictures/signature.jpg" alt="">
+        </figure>
     </section>
 
     <section class="slide">
@@ -670,6 +693,7 @@
             <li><a href="https://medium.com/@herrjemand/verifying-fido-u2f-attestations-in-fido2-f83fab80c355">WebAuthn/FIDO2: Verifying U2F Attestation</a></li>
             <li><a href="https://www.ubisecure.com/api/fido-webauthn-api/">Working with FIDO and the WebAuthn API</a></li>
             <li><a href="https://www.cs.princeton.edu/courses/archive/spring10/cos433/lec14new.pdf">Public Key Cryptography</a></li>
+            <li><a href="http://journals.bg.agh.edu.pl/AUTOMAT/2016.20.2/automat.2016.20.2.39.pdf">Asymmetric cryptography and trapdoor one-way functions</a></li>
             <li><a
                     href="https://medium.com/@bn121rajesh/rsa-sign-and-verify-using-openssl-behind-the-scene-bf3cac0aade2">RSA sign and verify using Openssl : Behind the scene</a>
             </li>
@@ -717,5 +741,6 @@
     <div class="progress"></div>
 
     <script src="shower/shower.min.js"></script>
+    <!-- denisu2f@gmail.com -->
 </body>
 </html>
