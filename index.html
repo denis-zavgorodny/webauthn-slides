@@ -324,7 +324,7 @@
     </section>
 
     <section class="slide">
-        <h2>Asymmetric cryptography</h2>
+        <h2><span style="color: #cc0000;">A</span>symmetric cryptography</h2>
         <center><img src="pictures/keys.png" alt=""></center>
     </section>
 
@@ -351,33 +351,19 @@
     </section>
 
     <section class="slide">
-        <h2>RSA</h2>
-        <center><figure>
-            <img width="60%" src="pictures/rsa-formula.svg" alt="RSA Formula to encrypt">
-            <img width="60%" src="pictures/rsa-formula2.svg" alt="RSA Formula to decrypt">
-        </figure></center>
-        <ul>
-            <li>c – enctypted message</li>
-            <li>m – dectypted message</li>
-            <li>e, n – public key</li>
-            <li>d, n – private key</li>
-        </ul>
+        <h2 class="shout">Clifford Cocks<br /><small>1973</small></h2>
     </section>
 
     <section class="slide">
         <h2>User Registration</h2>
         <figure>
-            <center>
-                <img width="55%" src="pictures/registration.png" alt="">
-            </center>
-            <figcaption class="copyright right">
-                <a class="dark" href="https://webauthn.guide/">© webauthn.guide</a>
-            </figcaption>
+            <img width="100%" src="pictures/webauth-registration.jpg" alt="">
         </figure>
     </section>
 
     <section class="slide">
         <h2>Create Credentials</h2>
+        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
         <pre>
                 <code>const credential = await <mark>navigator.credentials.create</mark>({</code>
                 <code>  publicKey: publicKeyCredentialCreationOptions</code>
@@ -387,6 +373,7 @@
 
     <section class="slide">
         <h2>Create Credentials</h2>
+        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
         <pre class="extra-small-code">
             <code>const publicKeyCredentialCreationOptions = {</code>
             <code>  <mark>challenge</mark>: randomStringFromServer, <span class="comment">// Uint8Array(...)</span></code>
@@ -409,6 +396,7 @@
 
     <section class="slide">
         <h2>Create Credentials</h2>
+        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
         <pre class="middle-code">
             <code>PublicKeyCredential {</code>
             <code>  <mark>id</mark>: 'ADSUllKQmbqdGtpu4sjseh4cg2TxSvrbcHDTBsv4NSSX9...',</code>
@@ -433,6 +421,7 @@
 
     <section class="slide">
         <h2>attestationObject</h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <pre>
             <code>{</code>
             <code>  fmt: 'none',</code>
@@ -443,6 +432,7 @@
     </section>
     <section class="slide">
         <h2>authData</h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <center>
             <figure>
                 <img width="70%" src="pictures/authData.png" alt="">
@@ -454,6 +444,7 @@
     </section>
     <section class="slide">
         <h2>Public Key</h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <pre>
             <code>Map {</code>
             <code>  1 => 2,</code>
@@ -474,6 +465,7 @@
 
     <section class="slide">
         <h2>CBOR Object Signing and Encryption <a href="https://tools.ietf.org/html/rfc8152">RFC</a></h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <pre class="small-code mono">
 +------+-------+-------+---------+----------------------------------+<br />
 |&nbsp;name&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;label&nbsp;|&nbsp;type&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
@@ -494,6 +486,7 @@
 
     <section class="slide">
         <h2>CBOR Object Signing and Encryption</h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <pre>
             <code>const tag = Buffer.from([0x04]);</code>
             <code><span class="comment">// 0x04 flag</span></code>
@@ -505,6 +498,7 @@
 
     <section class="slide">
         <h2>Public Key Cryptography Standards (<a href="https://tools.ietf.org/html/rfc2313">PKCS#1</a>)</h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <pre>
             <code>SEQUENCE {</code>
             <code>  SEQUENCE {</code>
@@ -518,6 +512,7 @@
 
     <section class="slide">
         <h2>Privacy Enhancement for Internet Electronic Mail</h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <div align="right"><a href="https://tools.ietf.org/html/rfc1421"><mark>PEM</mark> RFC 1421</a></div>
         <pre class="middle-code">
             <code>-----BEGIN PUBLIC KEY-----</code>
@@ -537,16 +532,14 @@
         <h2>User Authenticating</h2>
         <figure>
             <center>
-                <img width="38%" src="pictures/use-credentials.png" alt="">
+                <img width="95%" src="pictures/authentification.jpg" alt="">
             </center>
-            <figcaption class="copyright right">
-                <a class="dark" href="https://webauthn.guide/">© webauthn.guide</a>
-            </figcaption>
         </figure>
     </section>
 
     <section class="slide">
         <h2>Use Credentials</h2>
+        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
         <pre class="small-code">
             <code>const publicKeyCredentialRequestOptions = {</code>
             <code>  challenge: randomStringFromServer, <span class="comment">// Uint8Array(...)</span></code>
@@ -566,6 +559,7 @@
 
     <section class="slide">
         <h2>Transports</h2>
+        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
         <ul>
             <li><b>usb</b> – removable USB devices</li>
             <li><b>lightning</b> – removable Lightning devices</li>
@@ -577,6 +571,7 @@
 
     <section class="slide">
         <h2>Use Credentials</h2>
+        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
         <pre class="middle-code">
             <code>PublicKeyCredential {</code>
             <code>  id: 'ADSUllKQmbqdGtpu4sjseh4cg2TxSvrbcHDTBsv4NSSX9...',</code>
@@ -593,6 +588,7 @@
 
     <section class="slide">
         <h2>Server Side Authenticating</h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <ul>
             <li>Extract signature</li>
             <li>Extract authenticator data</li>
@@ -701,6 +697,7 @@
             <li><a href="https://medium.com/@herrjemand/verifying-fido-u2f-attestations-in-fido2-f83fab80c355">WebAuthn/FIDO2: Verifying U2F Attestation</a></li>
             <li><a href="https://www.ubisecure.com/api/fido-webauthn-api/">Working with FIDO and the WebAuthn API</a></li>
             <li><a href="https://www.cs.princeton.edu/courses/archive/spring10/cos433/lec14new.pdf">Public Key Cryptography</a></li>
+            <li><a href="http://journals.bg.agh.edu.pl/AUTOMAT/2016.20.2/automat.2016.20.2.39.pdf">Asymmetric cryptography and trapdoor one-way functions</a></li>
             <li><a
                     href="https://medium.com/@bn121rajesh/rsa-sign-and-verify-using-openssl-behind-the-scene-bf3cac0aade2">RSA sign and verify using Openssl : Behind the scene</a>
             </li>
