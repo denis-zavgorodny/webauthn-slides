@@ -245,6 +245,14 @@
         </ul>
     </section>
 
+    <section class="slide">
+        <img class="cover" width="100%" src="pictures/p24.jpg" alt="">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Phishing</h2>
+    </section>
+
     <section class="slide" id="cover">
         <img class="timeline" src="pictures/timeline/2019.png" alt="">
         <figure>
@@ -351,7 +359,7 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">Webauthn</h2>
+        <h2 class="shout">WebAuthn</h2>
     </section>
 
     <section class="slide">
@@ -369,6 +377,16 @@
     </section>
 
     <section class="slide">
+        <h2>Create Credentials</h2>
+        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
+        <pre>
+            <code>const credential = await <mark>navigator.credentials.create</mark>({</code>
+            <code>  publicKey: publicKeyCredentialCreationOptions</code>
+            <code>});</code>
+        </pre>
+    </section>
+
+    <section class="slide">
         <h2>User Registration</h2>
         <figure>
             <img width="95%" src="pictures/webauth-registration-3.jpg" alt="">
@@ -376,50 +394,20 @@
     </section>
 
     <section class="slide">
+        <h2>Relying party (RP)</h2>
+        <pre>
+            <code><mark>rp</mark>: {</code>
+            <code>    name: "Some secure site",</code>
+            <code>    <mark>id</mark>: 'domain.com' <span class="comment">// same-origin restrictions</span></code>
+            <code>},</code>
+        </pre>
+    </section>
+
+    <section class="slide">
         <h2>User Registration</h2>
         <figure>
             <img width="95%" src="pictures/webauth-registration-4.jpg" alt="">
         </figure>
-    </section>
-
-    <section class="slide">
-        <h2>User Registration</h2>
-        <figure>
-            <img width="95%" src="pictures/webauth-registration.jpg" alt="">
-        </figure>
-    </section>
-
-    <section class="slide">
-        <h2>Create Credentials</h2>
-        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
-        <pre>
-                <code>const credential = await <mark>navigator.credentials.create</mark>({</code>
-                <code>  publicKey: publicKeyCredentialCreationOptions</code>
-                <code>});</code>
-            </pre>
-    </section>
-
-    <section class="slide">
-        <h2>Create Credentials</h2>
-        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
-        <pre class="extra-small-code">
-            <code>const publicKeyCredentialCreationOptions = {</code>
-            <code>  <mark>challenge</mark>: randomStringFromServer, <span class="comment">// Uint8Array(...)</span></code>
-            <code>  <mark>rp</mark>: { name: "Some secure site", <mark>id</mark>: "SomeSecureSite.com" },</code>
-            <code>  user: {</code>
-            <code>    id: UZSL85T9AFC, <span class="comment">// Uint8Array(...)</span></code>
-            <code>    name: "Vasyl@SomeSecureSite.com",</code>
-            <code>    displayName: "Vasyl",</code>
-            <code>  },</code>
-            <code>  pubKeyCredParams: [{alg: -7, type: "public-key"}],</code>
-            <code>  authenticatorSelection: {</code>
-            <code>    authenticatorAttachment: "cross-platform", <span class="comment">// cross-platform | platform</span></code>
-            <code>    userVerification: "required", <span class="comment">//required | preferred | discouraged</span></code>
-            <code>  },</code>
-            <code>  timeout: 60000,</code>
-            <code>  attestation: "direct" <span class="comment">// none | indirect | direct</span></code>
-            <code>};</code>
-        </pre>
     </section>
 
     <section class="slide">
@@ -436,6 +424,13 @@
             <code>  type: 'public-key'</code>
             <code>}</code>
         </pre>
+    </section>
+
+    <section class="slide">
+        <h2>User Registration</h2>
+        <figure>
+            <img width="95%" src="pictures/webauth-registration.jpg" alt="">
+        </figure>
     </section>
 
     <section class="slide">
@@ -575,6 +570,16 @@
     </section>
 
     <section class="slide">
+        <h2>Use Credentials</h2>
+        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
+        <pre>
+            <code>const assertion = await <mark>navigator.credentials.get</mark>({</code>
+            <code>  publicKey: publicKeyCredentialRequestOptions</code>
+            <code>});</code>
+        </pre>
+    </section>
+
+    <section class="slide">
         <h2>User Authenticating</h2>
         <figure>
             <center>
@@ -593,47 +598,6 @@
     </section>
 
     <section class="slide">
-        <h2>User Authenticating</h2>
-        <figure>
-            <center>
-                <img width="92%" src="pictures/webauth-authentification.jpg" alt="">
-            </center>
-        </figure>
-    </section>
-
-    <section class="slide">
-        <h2>Use Credentials</h2>
-        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
-        <pre class="small-code">
-            <code>const publicKeyCredentialRequestOptions = {</code>
-            <code>  challenge: randomStringFromServer, <span class="comment">// Uint8Array(...)</span></code>
-            <code>  allowCredentials: [{</code>
-            <code>    id: credentialId, <span class="comment">// Uint8Array(...)</span></code>
-            <code>    type: 'public-key',</code>
-            <code>    transports: ['usb', 'ble', 'nfc', 'internal', 'lightning'],</code>
-            <code>  }],</code>
-            <code>  timeout: 60000,</code>
-            <code>}</code>
-            <code></code>
-            <code>const assertion = await <mark>navigator.credentials.get</mark>({</code>
-            <code>  publicKey: publicKeyCredentialRequestOptions</code>
-            <code>});</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>Transports</h2>
-        <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
-        <ul>
-            <li><b>usb</b> – removable USB devices</li>
-            <li><b>lightning</b> – removable Lightning devices</li>
-            <li><b>nfc</b> – Near Field Communication (NFC) devices</li>
-            <li><b>ble</b> – Bluetooth Low Energy devices</li>
-            <li><b>internal</b> – client device-specific transport (i.e. fingerprint)</li>
-        </ul>
-    </section>
-
-    <section class="slide">
         <h2>Use Credentials</h2>
         <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
         <pre class="middle-code">
@@ -648,6 +612,15 @@
             <code>  type: 'public-key'</code>
             <code>}</code>
         </pre>
+    </section>
+
+    <section class="slide">
+        <h2>User Authenticating</h2>
+        <figure>
+            <center>
+                <img width="92%" src="pictures/webauth-authentification.jpg" alt="">
+            </center>
+        </figure>
     </section>
 
     <section class="slide">
