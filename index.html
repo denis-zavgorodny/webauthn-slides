@@ -321,7 +321,7 @@
             <img style="object-fit: cover;" class="cover" width="100%" src="pictures/touchid.jpeg" alt="">
         </figure>
         <figcaption class="copyright right">
-            <a href="https://apple.com">© apple.com</a>
+            <a style="color: #fff;" href="https://apple.com">© apple.com</a>
         </figcaption>
     </section>
 
@@ -413,8 +413,8 @@
         <h2>Create Credentials</h2>
         <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
         <pre>
-            <code>const credential = await <mark>navigator.credentials.create</mark>({</code>
-            <code>  publicKey: publicKeyCredentialCreationOptions</code>
+            <code>const credential = <span style="color: rgba(205, 0, 0, 1)">await</span> <mark>navigator.credentials.<b>create</b></mark>({</code>
+            <code>  <span style="color: rgba(0,0,0,0.5);">publicKey</span>: publicKeyCredentialCreationOptions</code>
             <code>});</code>
         </pre>
     </section>
@@ -514,6 +514,29 @@
             <a class="dark" href="https://medium.com/@herrjemand/verifying-fido2-responses-4691288c8770">© @herrjemand</a>
         </figcaption>
     </section>
+
+    <section class="slide">
+        <h2>Server side</h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
+        <ul>
+            <li>CBOR Object Signing and Encryption <a href="https://tools.ietf.org/html/rfc8152">RFC</a></li>
+            <li>Public Key Cryptography Standards <a href="https://tools.ietf.org/html/rfc2313">PKCS#1</a></li>
+            <li>Privacy Enhancement for Internet Electronic Mail (PEM) <a
+                    href="https://tools.ietf.org/html/rfc1421">RFC 1421</a></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Public Key</h2>
+        <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
+        <pre class="middle-code">
+            <code>-----BEGIN PUBLIC KEY-----</code>
+            <code>MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAES8TDnoo3SH7tkQipIFDVB2Nfx5mp</code>
+            <code>j0L4OaOdqLbfEeYEsU5DE1hW0ROHCId5MTlfKbJY4wUYWseGSjwShgYsMQ==</code>
+            <code>-----END PUBLIC KEY-----</code>
+        </pre>
+    </section>
+    <!--
     <section class="slide">
         <h2>Public Key</h2>
         <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
@@ -593,6 +616,7 @@
             <code>-----END PUBLIC KEY-----</code>
         </pre>
     </section>
+    -->
 
     <section class="slide dora-slide">
         <figure>
@@ -631,8 +655,8 @@
         <h2>Use Credentials</h2>
         <img class="timeline" src="pictures/unicorn/background.jpg" alt="">
         <pre>
-            <code>const assertion = await <mark>navigator.credentials.get</mark>({</code>
-            <code>  publicKey: publicKeyCredentialRequestOptions</code>
+            <code>const assertion = <span style="color: rgba(205, 0, 0, 1);">await</span> <mark>navigator.credentials.<b>get</b></mark>({</code>
+            <code> <span style="color: rgba(0,0,0,0.5);">publicKey</span>: publicKeyCredentialRequestOptions</code>
             <code>});</code>
         </pre>
     </section>
@@ -705,7 +729,9 @@
         <h2>Verify signature</h2>
         <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <figure>
-            <img width="100%" src="pictures/signature.jpg" alt="">
+            <center>
+                <img width="75%" src="pictures/signature.jpg" alt="">
+            </center>
         </figure>
     </section>
 
