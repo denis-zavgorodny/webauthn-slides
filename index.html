@@ -326,6 +326,24 @@
     </section>
 
     <section class="slide">
+        <h2>Authenticators</h2>
+        <table>
+            <tr>
+                <td width="50%" align="left">
+                    <figure>
+                        <img style="object-fit: cover;" width="90%" src="pictures/Yubico-Experience-Pack.png" alt="">
+                    </figure>
+                </td>
+                <td width="50%" align="center">
+                    <figure>
+                        <img style="object-fit: cover;" width="50%" src="pictures/two-phones-touch-id.png" alt="">
+                    </figure>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
         <h2 class="shout">WebAuthn</h2>
     </section>
 
@@ -432,7 +450,7 @@
         <pre>
             <code><mark>rp</mark>: {</code>
             <code>    name: "Some secure site",</code>
-            <code>    <mark>id</mark>: 'domain.com' <span class="comment">// same-origin restrictions</span></code>
+            <code>    <mark>id</mark>: 'domain.com' <span class="comment">// prevent phishing attack</span></code>
             <code>},</code>
         </pre>
     </section>
@@ -495,8 +513,8 @@
         <img class="timeline" src="pictures/octopus/octopus.jpg" alt="">
         <pre>
             <code>{</code>
-            <code>  fmt: 'none',</code>
-            <code>  attStmt: {},</code>
+            <code> fmt: 'packed', <span class="comment">// fido-u2f, none...</span></code>
+            <code>  attStmt: { ... },</code>
             <code>  <mark>authData</mark>: &lt;Buffer 49 96 0d  ...&gt;</code>
             <code>}</code>
         </pre>
