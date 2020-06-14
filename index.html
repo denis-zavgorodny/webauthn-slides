@@ -40,6 +40,50 @@
         .middle-code {
             font-size: 18px;
         }
+        .main-cover::before {
+            content: '';
+            position: absolute;
+            display: block;
+            top: 0;
+            right: 0;
+            width: 43%;
+            height: 100%;
+            background: #c7121f;
+            z-index: 1;
+        }
+        .main-cover-img {
+            display: block;
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: 5%;
+            width: auto;
+            height: 80%;
+            transform: translateY(-50%);
+        }
+        .main-cover-name {
+            position: absolute;
+            right: 5%;
+            top: 20%;
+            z-index: 3;
+            color: #fff;
+            text-align: right;
+            font-size: 40px;
+            line-height: 1.1;
+            font-weight: bold;
+        }
+        .main-cover-title {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            width: 30%;
+            z-index: 3;
+            color: #fff;
+            text-align: right;
+            font-size: 30px;
+            line-height: 1.1;
+            font-weight: bold;
+        }
         .cover-slide-custom h2 {
             text-align: center;
             color: #fff;
@@ -116,9 +160,11 @@
         <h1>What about Biometric and U2F Token Web Authentication?</h1>
     </header>
 
-    <section class="slide clear">
+    <section class="slide clear main-cover">
+        <div class="main-cover-name">Denis<br /> Zavgorodny</div>
+        <div class="main-cover-title">What about Biometric and U2F Token Web Authentication?</div>
         <figure>
-            <img class="cover" width="100%" src="pictures/title-slide.jpg" alt="">
+            <img class="main-cover-img" src="pictures/cover.png" alt="">
         </figure>
     </section>
 
