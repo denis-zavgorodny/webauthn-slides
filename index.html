@@ -824,6 +824,52 @@
         </figure>
     </section>
 
+    <section class="slide">
+        <h2>Summary</h2>
+        <pre>
+            <code>const credential = <span style="color: rgba(205, 0, 0, 1)">await</span> <mark>navigator.credentials.<b>create</b></mark>({</code>
+            <code>  <span style="color: rgba(0,0,0,0.5);">publicKey</span>: publicKeyCredentialCreationOptions</code>
+            <code>});</code>
+        </pre>
+        <pre>
+            <code>const assertion = <span style="color: rgba(205, 0, 0, 1);">await</span> <mark>navigator.credentials.<b>get</b></mark>({</code>
+            <code> <span style="color: rgba(0,0,0,0.5);">publicKey</span>: publicKeyCredentialRequestOptions</code>
+            <code>});</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Summary</h2>
+        <pre  class="middle-code">
+            <code><span style="color: #990055">dictionary</span> PublicKeyCredentialCreationOptions {</code>
+            <code>  <span style="color: #990055">required</span> <span style="color: #888787; font-size: 14px;">PublicKeyCredentialRpEntity</span> rp;</code>
+            <code>  <span style="color: #990055">required</span> <span style="color: #888787; font-size: 14px;">PublicKeyCredentialUserEntity</span> user;</code>
+            <code>  <span style="color: #990055">required</span> <span style="color: #888787; font-size: 14px;">BufferSource</span> challenge;</code>
+            <code>  <span style="color: #990055">required sequence</span><span style="color: #888787; font-size: 14px;">&lt;PublicKeyCredentialParameters&gt;</span> pubKeyCredParams;</code>
+            <code>  <span style="color: #990055">unsigned long</span> timeout;</code>
+            <code>  <span style="color: #990055">sequence</span><span style="color: #888787; font-size: 14px;">&lt;PublicKeyCredentialDescriptor&gt;</span> excludeCredentials = [];</code>
+            <code>  <span style="color: #888787; font-size: 14px;">AuthenticatorSelectionCriteria</span> authenticatorSelection;</code>
+            <code>  <span style="color: #888787; font-size: 14px;">AttestationConveyancePreference</span> attestation = "none";</code>
+            <code>};</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Summary</h2>
+        <pre class="middle-code">
+            <code><span style="color: #990055">dictionary</span> PublicKeyCredentialRequestOptions {</code>
+            <code>  <span style="color: #990055">required</span> <span style="color: #888787; font-size: 14px;">BufferSource</span> challenge;</code>
+            <code>  <span style="color: #990055">unsigned long</span> timeout;</code>
+            <code>  <span style="color: #990055">USVString</span> rpId;</code>
+            <code>  <span style="color: #990055">sequence</span><PublicKeyCredentialDescriptor> allowCredentials = [];</code>
+            <code>  <span style="color: #888787; font-size: 14px;">UserVerificationRequirement</span> userVerification = "preferred";</code>
+            <code>  <span style="color: #888787; font-size: 14px;">AuthenticationExtensionsClientInputs</span> extensions;</code>
+            <code>};</code>
+        </pre>
+    </section>
+
+
+
     <section class="slide dora-slide">
         <figure>
             <img class="cover" width="100%" src="pictures/dora-happyness.jpg" alt="">
